@@ -1,0 +1,53 @@
+import java.io.*;
+
+
+class GooseInZooDivTwo
+{	
+	
+	public static void main(String args[])
+	{
+		GooseInZooDivTwo obj = new GooseInZooDivTwo();
+		String [] field = {"vvv"};
+		int dist = 100; 
+		int count = obj.count(field, dist);
+		
+		System.out.println(" count "+count);
+		
+	}
+	
+	int count(String[] field, int dist)
+	{
+		int output=0,i,j;		
+		char[][] char_arr = new char[field.length][field[0].length()];
+				
+		if(dist==0)
+		{
+			int char_length  = (char_arr[0].length*char_arr.length);
+			output = (int) (Math.pow(2, char_length)-1);
+			output = output %1000000007;
+			return output;
+		}
+		
+		boolean no_bird=true;
+		for(i=0;i<char_arr.length;i++)
+		{
+			for(j=0;j<char_arr[0].length;j++)
+			{
+				if(char_arr[i][j]=='v')
+					no_bird=false;
+			}			
+		}
+		
+		if(no_bird)
+			return 0;	
+		
+			
+			
+		
+		
+				
+		
+		
+		return output;
+	}
+}

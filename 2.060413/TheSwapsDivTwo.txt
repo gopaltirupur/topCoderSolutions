@@ -1,0 +1,88 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.*;
+
+public class TheSwapsDivTwo {
+	
+	int[][] master;
+
+	public int find(int[] sequence)
+	{
+		int count=0;		
+		
+		TheSwapsDivTwo obj =new TheSwapsDivTwo();
+		
+		obj.master = new int[1][sequence.length];
+		
+		for(int k=0;k<sequence.length;k++)
+		{
+			obj.master[0][k]=sequence[k];
+		}
+		
+		for(int i=0;i<sequence.length-1;i++)
+			for(int j=i+1;j<sequence.length;j++)
+			{
+				int[] new_sequence = obj.swap(sequence, i, j);
+				obj.master=obj.addArray(new_sequence, obj.master);						
+			}
+		
+		count= obj.master.length;		
+		return count;
+	}
+	
+	int[] swap(int[] seq,int x,int y)
+	{
+		int temp = seq[x];
+		seq[x]=seq[y];
+		seq[y]=temp;
+		
+		return seq;
+	}
+	
+	
+	int[][] addArray(int[] input,int[][] master)
+	{
+		int len=master.length;		
+		int[][] new_master = null;
+		int flag=1;
+		
+		int f;
+		int count=0;
+		int i,j;
+		
+		here:
+		for(i=0;i<len;i++)
+		{		
+			f=1;
+			for(j=0;j<master[i].length;j++)
+			{
+				if(input[j]!=master[i][j])
+				{
+					f=0;
+				}
+			}
+			if(f==0)
+				count++;
+		}
+		
+		if(count==len)
+		{
+			new_master=new int[len+1][input.length];
+			for(i=0;i<len;i++)
+			{
+				for(j=0;j<master[i].length;j++)
+				{
+					new_master[i][j]=master[i][j];
+				}
+			}
+			for(j=0;j<master[i-1].length;j++)
+			{
+				new_master[i][j]=input[j];
+			}			
+		}		
+		return new_master;
+	}
+	
+	
+}
+

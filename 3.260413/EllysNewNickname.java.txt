@@ -1,0 +1,65 @@
+
+
+class EllysNewNickname
+{
+	public int getLength(String nickname)
+	{
+		int l = nickname.length();
+		String temp_nickname = nickname;		
+		String t="";
+		EllysNewNickname obj = new EllysNewNickname(); 
+		for(int i=0;i<temp_nickname.length()-1;i++)
+		{			
+			boolean v1 = obj.isVowel(temp_nickname.charAt(i));
+			boolean v2 = obj.isVowel(temp_nickname.charAt(i+1));			
+			if(v1&&v2)
+			{
+				String s="";
+				for(int j=0;j<i;j++)
+				{
+					s=s+temp_nickname.charAt(j);
+				}
+				for(int j=i+1;j<temp_nickname.length();j++)
+				{
+					s=s+temp_nickname.charAt(j);
+				}
+				i=0;
+				temp_nickname=s;				
+			}
+			else
+			{
+				t=t+temp_nickname.charAt(i);
+			}
+		}
+		if(temp_nickname.length()==2)
+		{
+			boolean v3 = obj.isVowel(temp_nickname.charAt(0));
+			boolean v4 = obj.isVowel(temp_nickname.charAt(1));
+			if(v3&&v4)
+				return 1;
+		}
+		return temp_nickname.length();		
+	}
+	
+	public boolean isVowel(char a)
+	{
+		boolean output = false;
+		switch (a)
+		{
+			case 'a':
+				output=true;			break;
+			case 'e':
+				output=true;			break;
+			case 'i':
+				output=true;			break;
+			case 'o':
+				output=true;			break;
+			case 'u':
+				output=true;			break;
+			case 'y':
+				output=true;			break;
+			
+		}
+		return output;
+	}	
+}

@@ -1,0 +1,40 @@
+import java.io.*;
+
+
+class DeerInZooDivTwo
+{
+	public static void main(String args[])
+	{
+		DeerInZooDivTwo obj = new DeerInZooDivTwo();
+		int [] o = new int[2];
+		o = obj.getminmax(100,193);
+		
+		System.out.println(" "+o[0]+" "+o[1]);
+		
+	}
+	
+	int[] getminmax(int N, int K)
+	{
+		int[] output = new int[2];
+		
+		if(K==0)
+		{
+			output[0]=output[1]=N;
+		}
+		
+		{
+			float var = (float) Math.ceil((float)K/(float)2);
+			System.out.println(var);
+			output[1]=N-(int)var;
+		}
+		
+		{
+			if(K>=N)
+				output[0]=0;
+			else
+				output[0]=N-K;
+		}		
+		
+		return output;
+	}
+}

@@ -1,0 +1,61 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.*;
+
+public class TheNumberGameDivTwo {
+	
+	public String find(int n)
+	{
+		String output=null;
+		String s1="John";
+		String s2="Brus";
+		
+		int value=n;
+				
+		TheNumberGameDivTwo obj = new TheNumberGameDivTwo();
+		int count=0;
+		
+		
+		here1:
+		while(value>=0)
+		{
+			value=obj.play(value);
+			if(value<=0)
+			{
+				if(((++count)%2)==1)
+					output=s1;
+				else
+					output=s2;
+				
+				break here1;
+			}						
+		}		
+		return output;
+	}
+	
+	int play(int n)
+	{
+		int output=0;
+		
+		here:
+		for(int i=n-1;i>1;i--)
+		{
+			if(n%i==0)
+			{
+				output=i;
+				break here;
+			}
+		}		
+		if(output==0)
+		{
+			output=-1;
+		}
+		else
+			output=n-output;
+		
+		return output;		
+	}
+	
+	
+}
+
