@@ -3,15 +3,16 @@ import java.io.*;
 public class MovingRooksDiv2
 {
 	
-	public static void main(String args[])
+	public static void main(String args[]) throws IOException
 	{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String s1 = br.readLine();
-		String s2 = br.readline();
-		int[] Y1,int[] Y2[];
+		String s2 = br.readLine();
+		int[] Y1;
+		int[] Y2[];
 		
-		s1 = s1.substring(1,s1.length()-1)		
-		s2 = s2.substring(1,s2.length()-1)		
+		s1 = s1.substring(1,s1.length()-1);		
+		s2 = s2.substring(1,s2.length()-1)	;	
 		String s1_arr[] = s1.split(",");
 		String s2_arr[] = s2.split(",");
 		int i;
